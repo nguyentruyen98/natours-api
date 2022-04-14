@@ -5,16 +5,21 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon server.js",
+    "start:dev-import-tours": "node dev-data/data/import-dev-data.js --import",
+    "start:dev-delete-tours": "node dev-data/data/import-dev-data.js --delete",
     "start:prod": "SET NODE_ENV=production & nodemon server.js",
-    "debug": "ndb server.js"
+    "debug": "SET NODE_ENV=production & ndb server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.14",
     "morgan": "^1.10.0",
+    "nodemailer": "^6.7.3",
     "nodemon": "^2.0.15",
     "slugify": "^1.6.5",
     "validator": "^13.7.0"
