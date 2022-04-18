@@ -18,7 +18,6 @@ exports.getAllTours = catchAsync(async (req, res, next) => {
     .pagination();
 
   const tours = await features.query;
-
   res.status(200).json({
     status: 'success',
     results: tours.length,
@@ -73,7 +72,7 @@ exports.deleteTour = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.getToursStats = catchAsync(async (req, res) => {
+exports.getToursStats = catchAsync(async (req, res, next) => {
   const stats = await Tour.aggregate([
     {
       $match: { ratingsAverage: { $gte: 0 } },
